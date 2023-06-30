@@ -1,10 +1,16 @@
-// Fungsi untuk membuat array dengan angka acak
+// Fungsi untuk membuat array dengan angka acak yang bisa di ubah rentang, min, dan max nya
 function generateArray(n, min, max) {
     let arr = [];
     for(let i = 0; i < n; i++) {
         arr.push(Math.floor(Math.random() * (max - min + 1)) + min);
     }
     return arr;
+}
+
+//Fungsi untuk membuat random array dimulai dengan min angka 1 - max
+function generateRandomArray(n, max) {
+
+    return Array.from({length: n}, () => Math.floor(Math.random() * max) + 1);
 }
 
 // Fungsi untuk membagi array berdasarkan indeks genap dan ganjil
@@ -23,7 +29,7 @@ function splitArray(inputArr) {
     return { arrGenap, arrGanjil };
 }
 
-// Fungsi untuk menghitung statistik (min, max, total, rata-rata)
+// Fungsi untuk menghitung statistik dari array (min, max, total, rata-rata)
 function calculateStats(array) {
     let min = array[0];
     let max = array[0];
@@ -58,14 +64,16 @@ function compareStats(statsGenap, statsGanjil) {
     return comparison;
 }
 
-// Menggunakan fungsi-fungsi di atas
+// Memanggil fungsi-fungsi di atas
 let arr = generateArray(100, 1, 50);
+let randomArr = generateRandomArray(100, 50)
 let { arrGenap, arrGanjil } = splitArray(arr);
 let statsGenap = calculateStats(arrGenap);
 let statsGanjil = calculateStats(arrGanjil);
 let comparison = compareStats(statsGenap, statsGanjil);
 
 console.log("Array Awal:", arr);
+console.log("Random Array:", randomArr)
 console.log("Array Genap:", arrGenap);
 console.log("Array Ganjil:", arrGanjil);
 console.log("Statistik Array Genap:", statsGenap);
