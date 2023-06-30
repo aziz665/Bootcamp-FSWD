@@ -8,10 +8,12 @@ function generateArray(n, min, max) {
 }
 
 //Fungsi untuk membuat random array dimulai dengan min angka 1 - max
+/*
 function generateRandomArray(n, max) {
 
     return Array.from({length: n}, () => Math.floor(Math.random() * max) + 1);
 }
+*/
 
 // Fungsi untuk membagi array berdasarkan indeks genap dan ganjil
 function splitArray(inputArr) {
@@ -66,14 +68,14 @@ function compareStats(statsGenap, statsGanjil) {
 
 // Memanggil fungsi-fungsi di atas
 let arr = generateArray(100, 1, 50);
-let randomArr = generateRandomArray(100, 50)
+//let randomArr = generateRandomArray(100, 50);
 let { arrGenap, arrGanjil } = splitArray(arr);
 let statsGenap = calculateStats(arrGenap);
 let statsGanjil = calculateStats(arrGanjil);
 let comparison = compareStats(statsGenap, statsGanjil);
 
 console.log("Array Awal:", arr);
-console.log("Random Array:", randomArr)
+//console.log("Random Array:", randomArr);
 console.log("Array Genap:", arrGenap);
 console.log("Array Ganjil:", arrGanjil);
 console.log("Statistik Array Genap:", statsGenap);
